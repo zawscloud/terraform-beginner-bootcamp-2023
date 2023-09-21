@@ -14,7 +14,7 @@ The general format:
 - **MINOR** version when you add functionality in a backward compatible manner
 - **PATCH** version when you make backward compatible bug fixes
 
-### Considerations for Linux Distribution
+#### Considerations for Linux Distribution
 This project is built against Ubuntu.
 Please consider checking your Linux Distro by using this command: ```cat /etc/os-release```
 
@@ -24,13 +24,13 @@ For additional Linux commands please follow the link below:
 )
 
 
-### Install the Terraform CLI
+#### Install the Terraform CLI
 
 As of today, these are the latest documentation to Install the Terraform CLI.
 
 [Install Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
-### Refactoring into Bash Scripts
+#### Refactoring into Bash Scripts
 
 We decided to create a bash script to install the Terraform CLI.
 This bash script is located here: [./bin/install_terraform_cli.sh](./bin/install_terraform_cli.sh)
