@@ -33,7 +33,7 @@ As of today, these are the latest documentation to Install the Terraform CLI.
 #### Refactoring into Bash Scripts
 
 We decided to create a bash script to install the Terraform CLI.
-This bash script is located here: [./bin/install_terraform_cli.sh](./bin/install_terraform_cli.sh)
+This bash script is located here: [./bin/install_terraform_cli](./bin/install_terraform_cli)
 
 - This will keep the Gitpod Task File ([.gitpod.yml](.gitpod.yml)) tidy.
 - This allow us an easier way to debug and execute manual installation of the Terraform CLI.
@@ -56,7 +56,7 @@ eg. `source ./bin/install_terraform_cli`
 In order to make our bash script executable we need to change linux permission for the file to be execuatable at the user mode.
 
 ```sh
-chmod u+x ./bin/install_terraform_cli.sh
+chmod u+x ./bin/install_terraform_cli
 ```
 [Linux Chmod Command](https://en.wikipedia.org/wiki/Chmod)
 
@@ -115,3 +115,35 @@ All future workspaces launched will set the env vars for all bash terminals open
 
 You can also set env vars in the `gitpod.yml` file but this can only contain non-sensitive env vars
 
+### AWS CLI Installation
+
+AWS CLI is install for this project via the bash script [`./bin/install_aws_cli`](./bin/install_aws_cli)
+
+[Getting Started (Install AWS CLI)](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
+[AWS CLI Env Vars](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
+
+We can check if our AWS credentials is configured correctly by running the following AWS CLI command:
+
+```sh
+aws sts get-caller-identity
+```
+
+If it is successful, you should see a json payload return that looks like this:
+
+```json
+"UserId": "AKIAIOSFODNN7EXAMPLE",
+"Account": "123456789012",
+"Arn": "arn:aws:iam::123456789012:user/tfbootcamp"
+```
+
+### Generate AWS CLI Credentials 
+
+We'll need to generate AWS CLI credetials from IAM User in order to use the AWS CLI.
+
+Here are the recommended ways when working with AWS CLI credentials: [Authentication and access credentials (Recommended)](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-authentication.html)
+
+But for the purpose of this Bootcamp we are keeping it simple (non-recommended): 
+
+[Authenticate with IAM user credentials
+(Not-Recommended)](https://docs.aws.amazon.com/cli/latest/userguide/cli-authentication-user.html)
