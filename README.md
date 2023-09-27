@@ -147,3 +147,48 @@ But for the purpose of this Bootcamp we are keeping it simple (non-recommended):
 
 [Authenticate with IAM user credentials
 (Not-Recommended)](https://docs.aws.amazon.com/cli/latest/userguide/cli-authentication-user.html)
+
+## Terraform Basics
+
+
+
+- **Terraform** provisions, updates, and destroys infrastructure resources such as physical machines, VMs, network switches, containers, and more. Terraform sources their providers and modules from the Terraform registry which is located at [registry.terraform.io](https://registry.terraform.io/).
+The `.terraform` directory contains binaries of terraform providers.
+
+- **Terraform Registry** makes it easy to use any provider or module. To use a provider or module from this registry, just add it to your configuration; when you run `terraform init`, Terraform will automatically download everything it needs.
+
+- **Providers** are the plugins that Terraform uses to manage those resources. Every supported service or infrastructure platform has a provider that defines which resources are available and performs API calls to manage those resources..
+
+- **Modules** are reusable Terraform configurations that can be called and configured by other configurations. Most modules manage a few closely related resources from a single provider. It also makes your code portable and shareable. 
+
+### Terraform Console
+
+We can see a list of all the Terraform commands by simply typing `terraform` in our console.
+
+#### Terraform Commands
+
+`terraform init` this command is ran at the start of a new project. It downloads all the necessary binaries from the terraform provider to begin the project. Here you will find the list of all the latest Terraform providers: [Latest Terraform Providers](https://registry.terraform.io/browse/providers)
+
+`terraform plan` this command will generate a changeset, about the state of our infrastructure and what will be changed.
+
+`terraform apply` this command will run a plan and pass the changeset to be executed by terraform. Apply should prompt for yes or no.
+
+To automaticately approve a terraform apply command you can use this command `terraform apply --auto-approve`
+
+#### Terraform Files
+
+`.terraform.lock.hcl` contains the locked versioning for the providers or modules that should be used with this project.
+
+The Terraform Lock File **should be commited** to your Version Control System (VSC). eg. Github, Gitlab
+
+`.terraform.tfstate` contains information about the current state of your infrastructure. 
+This file **should not be commited** to your VCS.
+
+This file can contain sensitive data.
+
+If you lose this file, you lose knowing the state of your infrastructure.
+
+`.terraform.tfstate.backup` is the previous state file state.
+This file **should not be commited** to your VCS.
+
+
