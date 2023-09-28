@@ -175,6 +175,8 @@ We can see a list of all the Terraform commands by simply typing `terraform` in 
 
 To automaticately approve a terraform apply command you can use this command `terraform apply --auto-approve`
 
+`terraform destroy` this command will destroy resources. **Use caution when using it.** 
+
 #### Terraform Files
 
 `.terraform.lock.hcl` contains the locked versioning for the providers or modules that should be used with this project.
