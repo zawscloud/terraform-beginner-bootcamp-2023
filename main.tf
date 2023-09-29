@@ -1,4 +1,11 @@
 terraform {
+  cloud {
+    organization = "zawscloud-terraform-bootcamp"
+
+    workspaces {
+      name = "terra-house-1"
+    }
+  }
   required_providers {
     random = {
       source  = "hashicorp/random"
