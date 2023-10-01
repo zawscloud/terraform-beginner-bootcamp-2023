@@ -215,3 +215,34 @@ for use by subsequent commands:
 Token for app.terraform.io:
   Enter a value: 
 ```
+
+#### Issues with Terraform Cloud Login and Gitpod Workspace Continue
+
+When attempting to run `terraform login` it will launch bash in wiswig view to generate a token. However it does not work expected in Gitpod VsCode in the browser.
+
+The workaround is manuall generate a token in Terraform Cloud
+
+```
+https://app.terraform.io/app/settings/tokens?source=terraform-login
+```
+
+Then create open the file manually here:
+
+```sh
+touch /home/gitpod/.terraform.d/credentials.tfrc.json
+open /home/gitpod/.terraform.d/credentials.tfrc.json
+```
+
+Provide the following code (replace your token in the file):
+
+```json
+{
+  "credentials": {
+    "app.terraform.io": {
+      "token": "$TERRAFORM_CLOUD_TOKEN"
+    }
+  }
+}
+```
+
+We have automated the workaround with the following bash script. eg [bin/generate_tfrc_credentials](bin/generate_tfrc_credentials)
