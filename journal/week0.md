@@ -1,7 +1,7 @@
 # Terraform Beginner Bootcamp 2023 - Week 0
 
-- [Semantic Versioning :mage:](#semantic-versioning--mage-)
-- [Considerations for Linux Distribution](#considerations-for-linux-distribution)
+
+- [Semantic Versioning](#semantic-versioning-mage)
 - [Install the Terraform CLI](#install-the-terraform-cli)
 - [Refactoring into Bash Scripts](#refactoring-into-bash-scripts)
 - [Shebang](#shebang)
@@ -22,7 +22,7 @@
 - [Issues with Terraform Cloud Login and Gitpod Workspaces](#issues-with-terraform-cloud-login-and-gitpod-workspaces)
   * [Issues with Terraform Cloud Login and Gitpod Workspace Continue](#issues-with-terraform-cloud-login-and-gitpod-workspace-continue)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 ## Semantic Versioning :mage:
 
