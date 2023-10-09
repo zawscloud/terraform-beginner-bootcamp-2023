@@ -38,7 +38,7 @@ The general format:
 - **MINOR** version when you add functionality in a backward compatible manner
 - **PATCH** version when you make backward compatible bug fixes
 
-#### Considerations for Linux Distribution
+### Considerations for Linux Distribution
 This project is built against Ubuntu.
 Please consider checking your Linux Distro by using this command: ```cat /etc/os-release```
 
