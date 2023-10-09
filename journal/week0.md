@@ -1,13 +1,14 @@
 # Terraform Beginner Bootcamp 2023 - Week 0
 
 
-- [Semantic Versioning](#semantic-versioning-mage)
+- [Semantic Versioning](#semantic-versioning)
+- [Considerations for Linux Distribution](#considerations-for-linux-distribution)
 - [Install the Terraform CLI](#install-the-terraform-cli)
 - [Refactoring into Bash Scripts](#refactoring-into-bash-scripts)
 - [Shebang](#shebang)
 - [Execution Consideration](#execution-consideration)
 - [Linux Permissions Considerations](#linux-permissions-considerations)
-- [Gitpod Lifecycle](#gitpod-lifecycle-before-init-command)
+- [Gitpod Lifecycle Before Init Command](#gitpod-lifecycle-before-init-command)
 - [Working with Env Vars](#working-with-env-vars)
   * [Setting and Unsetting Env Vars](#setting-and-unsetting-env-vars)
   * [Printing Vars](#printing-vars)
@@ -24,7 +25,7 @@
 
 
 
-## Semantic Versioning :mage:
+## Semantic Versioning
 
 This project is going to utilize semantic versioning for its tagging.
 [semver.org](https://semver.org/)
@@ -38,7 +39,7 @@ The general format:
 - **MINOR** version when you add functionality in a backward compatible manner
 - **PATCH** version when you make backward compatible bug fixes
 
-### Considerations for Linux Distribution
+## Considerations for Linux Distribution
 This project is built against Ubuntu.
 Please consider checking your Linux Distro by using this command: ```cat /etc/os-release```
 
