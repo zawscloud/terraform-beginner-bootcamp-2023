@@ -1,6 +1,4 @@
 # Terraform Beginner Bootcamp 2023 - Week 1
-<<<<<<< HEAD
-=======
 
 
 ## Root Module Structure
@@ -55,4 +53,24 @@ Terraform loads variables in the following order, with later sources taking prec
 3. The `terraform.tfvars.json` file, if present.
 4. Any `*.auto.tfvars` or `*.auto.tfvars.json` files, processed in lexical order of their filenames.
 5. Any `-var` and `-var-file` options on the command line, in the order they are provided. (This includes variables set by a Terraform Cloud workspace.)
->>>>>>> 19-create-toc-readme
+
+
+## Dealing with Conifguration Drift
+
+## what happens if we lose our state file?
+
+IF you lose your statefile, you most likely have to tear down all your cloud infra manually.
+
+You can use terraform import but it won't work for all cloud resources. You need to check the terraform providers documentation for which resources support import
+
+### Fix Missing Resources with Terraform Import
+
+`terraform import aws_s3_bucket.example`
+
+[Terraform Import](https://developer.hashicorp.com/terraform/cli/import)
+
+[AWS S3 Bucket Import](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
+
+### Fix Manual Configuration
+
+If someone deletes or modifies cloud resource manually through Clickops, we can run `terraform plan` to attempt to put our infrastructure back into the expected state fixing a configuration drift.
