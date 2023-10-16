@@ -1,10 +1,16 @@
+terraform {
+#   cloud {
+#     organization = "zawscloud-terraform-bootcamp"
 
-resource "aws_s3_bucket" "website_bucket" {
-  bucket = var.bucket_name
+#     workspaces {
+#       name = "terra-house-1"
+#     }
+#   }
 
-  tags = {
-    UserUuid        = var.user_uuid
-    Environment = "Dev"
-  }
 }
 
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  user_uuid = var.user_uuid
+  bucket_name = var.bucket_name
+}
