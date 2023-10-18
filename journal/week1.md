@@ -114,3 +114,50 @@ module "terrahouse_aws" {
 
 [Modules Sources](https://developer.hashicorp.com/terraform/language/modules/sources)
 
+## Consideration when using ChatGPT to write Terraform
+
+LLMs such as ChatGPT may not be trained on the latest documentation or information about Terraform.
+
+It might produce outdated documents or examples that does not work with the current provider.
+
+## Working with Files in Terraform
+
+### File exist function
+
+This is a built-in terraform function to check the existance of a file. eg:
+
+```tf
+    condition     = fileexists(var.error_html_filepath)
+```
+[Fileexist](https://developer.hashicorp.com/terraform/language/functions/fileexists)
+
+### Filemd5
+
+[filemd5 function](https://developer.hashicorp.com/terraform/language/functions/filemd5)
+
+### Path Variable
+
+In terraform there is a special variable called `path` that allows us to reference local paths:
+- path.module = get the path for the current module
+- path.root = get the path for the root of the project.
+
+[Special Path Variables](https://developer.hashicorp.com/terraform/language/expressions/references#filesystem-and-workspace-info)
+
+#### Using the `path.root` as a source for your `index.html` code.
+
+[S3 Object](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object)
+
+```tf
+resource "aws_s3_object" "index" {
+  bucket = aws_s3_bucket.website_bucket.bucket
+  key    = "index.html"
+  source = "${path.root}/public/index.html"
+
+  
+  etag = filemd5("${path.root}/public/index.html")
+}
+```
+
+[etag](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_object.html#etag) - (Optional) Triggers updates when the value changes with in an `index.html` or `error.html` file.
+
+
