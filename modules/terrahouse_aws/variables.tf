@@ -17,3 +17,23 @@ variable "bucket_name" {
     error_message = "Bucket name must be between 3 and 63 characters and can only contain lowercase letters, numbers, hyphens, and periods."
   }
 }
+
+variable "index_html_filepath" {
+  description = "Filepath to the index.html file"
+  type        = string
+
+  validation {
+    condition     = can(file(var.index_html_filepath))
+    error_message = "The specified index.html file does not exist."
+  }
+}
+
+variable "error_html_filepath" {
+  description = "Filepath to the error.html file"
+  type        = string
+
+  validation {
+    condition     = can(file(var.error_html_filepath))
+    error_message = "The specified error.html file does not exist."
+  }
+}
