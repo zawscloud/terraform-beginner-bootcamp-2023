@@ -1,11 +1,11 @@
 terraform {
-  #   cloud {
-  #     organization = "zawscloud-terraform-bootcamp"
+  cloud {
+    organization = "zawscloud-terraform-bootcamp"
 
-  #     workspaces {
-  #       name = "terra-house-1"
-  #     }
-  #   }
+    workspaces {
+      name = "terraform-cloud"
+    }
+  }
 
 }
 
